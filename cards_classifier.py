@@ -874,13 +874,6 @@ class App:
             font=("Arial", 18, "bold"),
         ).pack(pady=(0, 6))
 
-        # podnadpis
-        ttk.Label(
-            main,
-            text="CNN + TensorFlow/Keras + Tkinter",
-            font=("Arial", 11),
-        ).pack(pady=(0, 12))
-
         # rámik na obrázok
         img_frame = ttk.LabelFrame(main, text="Ukážka obrázka", padding=12)
         img_frame.pack(fill="x", pady=(0, 12))
