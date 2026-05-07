@@ -1,12 +1,44 @@
-🃏 Klasifikácia hracích kariet pomocou CNN
-Záverečná práca v rámci študijného programu MSc Umelá Inteligencia a Strojové Učenie (AI a ML)
+# 🃏 Klasifikácia hracích kariet pomocou CNN
+
+Záverečná práca v rámci študijného programu **MSc Umelá Inteligencia a Strojové Učenie (AI a ML)**  
+Autor: **Mgr. Ing. Ondrej Jelenovič, MBA**  
 Škola: VITA ACADEMY
 
-📌 O projekte
-Táto aplikácia slúži ako edukačný systém na rozpoznávanie hracích kariet pomocou konvolučných neurónových sietí (CNN). Cieľom je ukázať celý životný cyklus ML projektu – od prípravy datasetu, cez tréning modelu, až po klasifikáciu nových obrázkov – v jednom prehľadnom GUI rozhraní.
-Systém bol navrhnutý tak, aby bežal aj na bežnom počítači bez dedikovanej GPU a aby bol plne reprodukovateľný.
+---
 
-📁 Štruktúra projektu
+## 📌 O projekte
+
+Táto aplikácia slúži ako **edukačný systém** na rozpoznávanie hracích kariet pomocou konvolučných neurónových sietí (CNN). Cieľom je ukázať celý životný cyklus ML projektu – od prípravy datasetu, cez tréning modelu, až po klasifikáciu nových obrázkov – v jednom prehľadnom GUI rozhraní.
+
+Systém bol navrhnutý tak, aby bežal aj na **bežnom počítači bez dedikovanej GPU** a aby bol plne reprodukovateľný.
+
+### Dosiahnuté výsledky
+
+| Metrika | Hodnota |
+|---|---|
+| Testovacia presnosť | **81,13 %** |
+| Validačná presnosť | **83,40 %** |
+| Inferencia jedného obrázka | **< 0,1 s** (CPU) |
+| Makro Precision | ~81 % |
+| Makro Recall | ~76 % |
+| Makro F1-score | ~76 % |
+
+---
+
+## 🛠️ Technológie
+
+- **Python 3.10+**
+- **TensorFlow / Keras** – tréning a inferencia CNN modelu
+- **Tkinter** – desktopové GUI
+- **Matplotlib** – grafy tréningu a confusion matrix
+- **scikit-learn** – výpočet metrík (precision, recall, F1)
+- **Pillow (PIL)** – spracovanie obrázkov
+
+---
+
+## 📁 Štruktúra projektu
+
+```
 projekt/
 │
 ├── cards_classifier.py       # Hlavný súbor aplikácie
@@ -24,61 +56,135 @@ projekt/
     ├── loss_plot.png          # Graf straty
     ├── confusion_matrix.png   # Confusion matrix
     └── metrics_plot.png       # Graf metrík
+```
 
-⚙️ Inštalácia
-1. Klonovanie repozitára
+---
 
+## ⚙️ Inštalácia
+
+### 1. Klonovanie repozitára
+
+```bash
 git clone https://github.com/<tvoj-github-nick>/cards-classifier.git
 cd cards-classifier
+```
 
-2. Inštalácia závislostí
+### 2. Vytvorenie virtuálneho prostredia (odporúčané)
 
+```bash
+python -m venv venv
+
+# Windows
+venv\Scripts\activate
+
+# macOS / Linux
+source venv/bin/activate
+```
+
+### 3. Inštalácia závislostí
+
+```bash
 pip install tensorflow pillow matplotlib scikit-learn
+```
 
-3. Stiahnutie datasetu
-Dataset hracích kariet je dostupný na platforme Kaggle:
+### 4. Stiahnutie datasetu
 
-🔗 Cards Image Dataset – Playing Card Images
-https://www.kaggle.com/datasets/gpiosenka/cards-image-datasetclassification
+Dataset hracích kariet je dostupný na platforme **Kaggle**:  
+🔗 [Cards Image Dataset – Playing Card Images](https://www.kaggle.com/datasets/gpiosenka/cards-image-datasetclassification)
 
-Po stiahnutí rozbaľ dataset do priečinka dataset/ tak, aby mal štruktúru dataset/train/, dataset/valid/, dataset/test/.
+Po stiahnutí rozbaľ dataset do priečinka `dataset/` tak, aby mal štruktúru `dataset/train/`, `dataset/valid/`, `dataset/test/`.
 
-🚀 Spustenie
+---
+
+## 🚀 Spustenie
+
+```bash
 python cards_classifier.py
+```
+
 Po spustení sa otvorí grafické GUI rozhranie aplikácie.
 
-🖥️ Popis GUI aplikácie
+---
+
+## 🖥️ Popis GUI aplikácie
+
 Aplikácia obsahuje niekoľko záložiek a ovládacích prvkov:
-Nastavenia tréningu
+
+### Nastavenia tréningu
 Pred spustením tréningu môžeš nastaviť tieto parametre priamo v GUI:
-ParameterPredvolená hodnotaPopisEpochy10Počet epoch tréninguBatch size32Veľkosť dávky pri tréninguDropout0.2Miera regularizácie (0.1 / 0.2 / 0.3 / 0.4)
-Priebeh tréningu
 
-Reálne logovanie po každej epoche (accuracy, loss, val_accuracy, val_loss)
-Tlačidlo STOP na prerušenie tréningu kedykoľvek
-Automatické uloženie najlepšieho modelu
+| Parameter | Predvolená hodnota | Popis |
+|---|---|---|
+| **Epochy** | 10 | Počet epoch tréningu |
+| **Batch size** | 32 | Veľkosť dávky pri tréningu |
+| **Dropout** | 0.2 | Miera regularizácie (0.1 / 0.2 / 0.3 / 0.4) |
 
-Grafy a metriky
+### Priebeh tréningu
+- Reálne logovanie po každej epoche (accuracy, loss, val_accuracy, val_loss)
+- Tlačidlo **STOP** na prerušenie tréningu kedykoľvek
+- Automatické uloženie najlepšieho modelu
+
+### Grafy a metriky
 Po tréningu aplikácia automaticky vygeneruje:
+- Graf presnosti (accuracy) počas tréningu
+- Graf straty (loss) počas tréningu
+- Confusion matrix
+- Prehľad metrík (precision, recall, F1-score)
 
-Graf presnosti (accuracy) počas tréningu
-Graf straty (loss) počas tréningu
-Confusion matrix
-Prehľad metrík (precision, recall, F1-score)
+### Klasifikácia obrázkov
+- Načítanie celého testovacieho priečinka (`dataset/test/`)
+- Prechádzanie obrázkov pomocou tlačidiel alebo klávesových šípok
+- Upload vlastného obrázka z počítača
+- Zobrazenie **Top-3 predikovaných tried** s percentuálnou pravdepodobnosťou
+- Porovnanie predikcie so skutočnou triedou (podľa názvu priečinka)
 
-Klasifikácia obrázkov
+---
 
-Načítanie celého testovacieho priečinka (dataset/test/)
-Prechádzanie obrázkov pomocou tlačidiel alebo klávesových šípok
-Upload vlastného obrázka z počítača
-Zobrazenie Top-3 predikovaných tried s percentuálnou pravdepodobnosťou
-Porovnanie predikcie so skutočnou triedou (podľa názvu priečinka)
+## 🧠 Architektúra CNN modelu
 
+- Vstupný rozmer obrázka: **224 × 224 px** (RGB)
+- Počet tried: **53** (52 kariet + žolík)
+- Celkový počet parametrov modelu: **~12 945 269**
+- Regularizácia: **Dropout** (nastaviteľný v GUI)
+- Callback: automatické ukladanie najlepšieho modelu podľa validačnej presnosti
 
-🧠 Architektúra CNN modelu
+---
 
-Vstupný rozmer obrázka: 224 × 224 px (RGB)
-Počet tried: 53 (52 kariet + žolík)
-Celkový počet parametrov modelu: ~12 945 269
-Regularizácia: Dropout (nastaviteľný v GUI)
-Callback: automatické ukladanie najlepšieho modelu podľa validačnej presnosti
+## 📊 Dataset
+
+| Množina | Počet obrázkov | Počet tried |
+|---|---|---|
+| Trénovacia | 7 624 | 53 |
+| Validačná | 265 | 53 |
+| Testovacia | 265 | 53 |
+
+Zdroj: [Kaggle – Cards Image Dataset](https://www.kaggle.com/datasets/gpiosenka/cards-image-datasetclassification)
+
+---
+
+## 🔬 Reprodukovateľnosť
+
+Projekt používa fixný seed **42** pre všetky náhodné operácie, čo zaručuje reprodukovateľnosť výsledkov pri rovnakých vstupných parametroch.
+
+---
+
+## 🔮 Možnosti ďalšieho rozvoja
+
+- Integrácia **transfer learningu** (napr. MobileNetV2, EfficientNet)
+- Rozšírenie o rozpoznávanie cez **webkameru** (OpenCV)
+- Doplnenie **Grad-CAM** vizualizácií pre interpretovateľnosť modelu
+- Podpora porovnávania viacerých modelov v rámci jedného GUI
+
+---
+
+## 📄 Licencia
+
+Tento projekt vznikol ako edukačná záverečná práca. Kód je voľne dostupný na nekomerčné a vzdelávacie účely.
+
+---
+
+## 👤 Autor
+
+**Mgr. Ing. Ondrej Jelenovič, MBA**  
+Študijný program: MSc Umelá Inteligencia a Strojové Učenie (AI a ML)  
+Škola: VITA ACADEMY
