@@ -12,17 +12,6 @@ Táto aplikácia slúži ako **edukačný systém** na rozpoznávanie hracích k
 
 Systém bol navrhnutý tak, aby bežal aj na **bežnom počítači bez dedikovanej GPU** a aby bol plne reprodukovateľný.
 
-### Dosiahnuté výsledky
-
-| Metrika | Hodnota |
-|---|---|
-| Testovacia presnosť | **81,13 %** |
-| Validačná presnosť | **83,40 %** |
-| Inferencia jedného obrázka | **< 0,1 s** (CPU) |
-| Makro Precision | ~81 % |
-| Makro Recall | ~76 % |
-| Makro F1-score | ~76 % |
-
 ---
 
 ## 🛠️ Technológie
@@ -165,15 +154,6 @@ Zdroj: [Kaggle – Cards Image Dataset](https://www.kaggle.com/datasets/gpiosenk
 ## 🔬 Reprodukovateľnosť
 
 Projekt používa fixný seed **42** pre všetky náhodné operácie, čo zaručuje reprodukovateľnosť výsledkov pri rovnakých vstupných parametroch.
-
----
-
-## 🔮 Možnosti ďalšieho rozvoja
-
-- Integrácia **transfer learningu** (napr. MobileNetV2, EfficientNet)
-- Rozšírenie o rozpoznávanie cez **webkameru** (OpenCV)
-- Doplnenie **Grad-CAM** vizualizácií pre interpretovateľnosť modelu
-- Podpora porovnávania viacerých modelov v rámci jedného GUI
 
 ---
 
