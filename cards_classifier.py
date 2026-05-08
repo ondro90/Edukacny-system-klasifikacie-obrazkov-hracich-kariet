@@ -1747,7 +1747,7 @@ class App:
         messagebox.showinfo(
             "O autorovi",
             "Klasifikácia hracích kariet\n\n"
-            "Autor: Mgr. Ing. Adam Sangala, MBA\n"
+            "Autor: Mgr. Ing. Ondrej, MBA\n"
             "Študijný program: MSc Umelá Inteligencia a Strojové Učenie\n"
             "Škola: VITA ACADEMY\n\n",
         )
